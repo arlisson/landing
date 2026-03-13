@@ -691,12 +691,12 @@ body::before {
   }
 
   body {
-    padding-top: 32px;
+    padding-top: 0;
   }
 
   .main-content,
   .landing-footer {
-    width: min(100%, calc(100% - 24px));
+    width: calc(100% - 24px);
   }
 
   .top-navbar {
@@ -705,7 +705,7 @@ body::before {
     justify-content: center;
     align-items: center;
     row-gap: 12px;
-    padding: 16px 18px 18px;
+    padding: 16px 12px 18px;
   }
 
   .logo-container {
@@ -722,8 +722,16 @@ body::before {
     order: 2;
   }
 
+  .brand {
+    width: 100%;
+    justify-content: center;
+  }
+
   .brand-logo {
     max-height: 58px;
+    max-width: min(260px, 78vw);
+    height: auto;
+    width: auto;
   }
 
   .nav-cta {
@@ -733,7 +741,11 @@ body::before {
 
   .hero-section {
     min-height: auto;
-    padding: 20px 0 28px;
+    padding: 8px 0 28px;
+  }
+
+  .hero-content {
+    max-width: 100%;
   }
 
   .hero-title {
@@ -752,10 +764,7 @@ body::before {
   }
 
   .hero-btn,
-  .nav-cta {
-    width: 100%;
-  }
-
+  .nav-cta,
   .proof-item,
   .info-card,
   .showcase-card {
