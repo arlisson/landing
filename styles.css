@@ -724,6 +724,20 @@ body.dark-mode .about-side-card {
 }
 
 @media (max-width: 640px) {
+
+   body {
+    padding-top: 152px;
+  }
+
+  .top-navbar {
+    padding: 16px 18px 18px;
+  }
+
+  .hero-section {
+    min-height: auto;
+    padding-top: 16px;
+  }
+  
   .main-content,
   .landing-footer {
     width: min(100%, calc(100% - 24px));
