@@ -1,24 +1,8 @@
 :root {
-  --bg-main: #fafeff;
-  --bg-card: #ffffff;
-  --bg-soft: #f3fbfe;
-  --bg-sidebar: #131739;
-  --brand-primary: #133868;
-  --brand-primary-strong: #0f2c58;
-  --brand-accent: #5ac3e8;
-  --brand-light: #ade5f2;
-  --brand-action: #57c5ea;
-  --text-primary: #0f2c58;
-  --text-secondary: #4b6f96;
-  --border-subtle: rgba(19, 56, 104, 0.09);
-  --shadow-color: rgba(19, 56, 104, 0.08);
-  --glow-soft: rgba(90, 195, 232, 0.18);
-}
-
-body.dark-mode {
   --bg-main: #0b0e23;
   --bg-card: #131739;
   --bg-soft: #10162f;
+  --bg-sidebar: #131739;
   --brand-primary: #ade5f2;
   --brand-primary-strong: #fafeff;
   --brand-accent: #5ac3e8;
@@ -90,41 +74,24 @@ body::before {
   padding: 18px 28px;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  background: rgba(250, 254, 255, 0.92);
+  background: rgba(11, 14, 35, 0.92);
   border-bottom: 1px solid var(--border-subtle);
   z-index: 99999;
   isolation: isolate;
 }
 
-body.dark-mode .top-navbar {
-  background: rgba(11, 14, 35, 0.92);
-}
-
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
   text-decoration: none;
 }
 
-.brand-mark {
-  width: 42px;
-  height: 42px;
-  border-radius: 14px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--brand-primary), var(--brand-action));
-  color: white;
-  font-weight: 800;
-  box-shadow: 0 14px 28px var(--shadow-color);
-}
-
-.brand-text {
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: -0.4px;
-  color: var(--brand-primary-strong);
+.brand-logo {
+  display: block;
+  max-height: 52px;
+  width: auto;
+  object-fit: contain;
 }
 
 .navbar-links,
@@ -165,14 +132,7 @@ body.dark-mode .top-navbar {
 }
 
 .theme-toggle-top {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  border: 1px solid var(--border-subtle);
-  background: var(--bg-card);
-  color: var(--text-primary);
-  cursor: pointer;
-  box-shadow: 0 8px 22px var(--shadow-color);
+  display: none;
 }
 
 .nav-cta,
@@ -305,13 +265,9 @@ body.dark-mode .top-navbar {
   min-width: 170px;
   padding: 18px 20px;
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(19, 23, 57, 0.72);
   border: 1px solid var(--border-subtle);
   box-shadow: 0 16px 34px var(--shadow-color);
-}
-
-body.dark-mode .proof-item {
-  background: rgba(19, 23, 57, 0.72);
 }
 
 .proof-item strong {
@@ -438,10 +394,6 @@ body.dark-mode .proof-item {
     0 20px 40px rgba(19, 56, 104, 0.14),
     0 38px 90px rgba(19, 56, 104, 0.24);
   border-color: rgba(87, 197, 234, 0.38);
-}
-
-body.dark-mode .info-card-link:hover {
-  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.38);
 }
 
 .info-card-link:hover::after {
@@ -646,15 +598,10 @@ body.dark-mode .info-card-link:hover {
 
 .about-text-area,
 .about-side-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(243, 251, 254, 0.94));
+  background: linear-gradient(180deg, rgba(19, 23, 57, 0.95), rgba(16, 22, 47, 0.98));
   border: 1px solid var(--border-subtle);
   border-radius: 30px;
   box-shadow: 0 22px 60px var(--shadow-color);
-}
-
-body.dark-mode .about-text-area,
-body.dark-mode .about-side-card {
-  background: linear-gradient(180deg, rgba(19, 23, 57, 0.95), rgba(16, 22, 47, 0.98));
 }
 
 .about-text-area {
@@ -735,8 +682,16 @@ body.dark-mode .about-side-card {
 }
 
 @media (max-width: 640px) {
+  html {
+    scroll-padding-top: 40px;
+  }
+
+  section[id] {
+    scroll-margin-top: 40px;
+  }
+
   body {
-    padding-top: 190px;
+    padding-top: 32px;
   }
 
   .main-content,
@@ -745,6 +700,7 @@ body.dark-mode .about-side-card {
   }
 
   .top-navbar {
+    position: relative;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -756,25 +712,28 @@ body.dark-mode .about-side-card {
     width: 100%;
     display: flex;
     justify-content: center;
+    order: 1;
   }
 
   .navbar-right {
     width: 100%;
+    display: flex;
     justify-content: center;
+    order: 2;
   }
 
-  .theme-toggle-top {
-    flex: 0 0 60px;
+  .brand-logo {
+    max-height: 58px;
   }
 
   .nav-cta {
-    flex: 1;
+    width: 100%;
     max-width: 360px;
   }
 
   .hero-section {
     min-height: auto;
-    padding: 8px 0 28px;
+    padding: 20px 0 28px;
   }
 
   .hero-title {
@@ -816,14 +775,5 @@ body.dark-mode .about-side-card {
   .about-text-area p {
     font-size: 15px;
     line-height: 1.75;
-  }
-
-  .brand-text {
-    font-size: 18px;
-  }
-
-  .brand-mark {
-    width: 38px;
-    height: 38px;
   }
 }
