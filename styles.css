@@ -37,6 +37,11 @@ body.dark-mode {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+
+section[id] {
+  scroll-margin-top: 110px;
 }
 
 body {
@@ -50,6 +55,7 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   transition: background 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
+  padding-top: 92px;
 }
 
 body::before {
@@ -73,20 +79,26 @@ body::before {
 }
 
 .top-navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 18px;
   padding: 18px 28px;
   backdrop-filter: blur(18px);
-  background: rgba(250, 254, 255, 0.74);
+  -webkit-backdrop-filter: blur(18px);
+  background: rgba(250, 254, 255, 0.92);
   border-bottom: 1px solid var(--border-subtle);
+  z-index: 99999;
+  isolation: isolate;
 }
 
 body.dark-mode .top-navbar {
-  background: rgba(11, 14, 35, 0.72);
+  background: rgba(11, 14, 35, 0.92);
 }
 
 .brand {
