@@ -775,10 +775,17 @@ iframe {
     padding-top: 0;
   }
 
+  .landing-footer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+  }
+
   .main-content,
   .landing-footer {
     width: calc(100% - 24px);
-    align-content: center;
   }
 
   .top-navbar {
